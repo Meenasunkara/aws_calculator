@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <!-- Styling for the client UI -->
+    <style>
+    h1 {
+        color: #000000;
+        font-family: system-ui;
+		margin-left: 20px;
+        }
+	body {
+        background-image:url('bg.jpg');
+	  background-repeat:no-repeat;
+        background-attachment:fixed;
+	  background-size:100% 100%;	
+        }
+    label {
+        color: #880E4F ;
+        font-family: system-ui;
+	  font-weight:bold;
+        font-size: 20px;
+        margin-left: 20px;
+		margin-top: 20px;
+        }
+     button {
+        background-color: #339933;
+		border-color: #17202A;
+		color: #1B2631;
+        font-family: system-ui;
+        font-size: 20px;
+		font-weight: bold;
+        margin-left: 30px;
+		margin-top: 20px;
+		width: 140px;
+        }
+	 input {
+        color: #222629;
+        font-family: system-ui;
+        font-size: 20px;
+        margin-left: 10px;
+		margin-top: 20px;
+		width: 100px;
+        }
+    </style>
+    <script>
+		function callAPI(operation, num1, num2) {
+			var resultElement = document.getElementById('result');
+			resultElement.value = ''; // Clear the result field before setting the value
+			if (operation == "power") {
+				resultElement.value = Math.pow(num1, num2);
+			} else if (operation == "add") {
+				resultElement.value = parseFloat(num1) + parseFloat(num2);
+			} else if (operation == "subtract") {
+				resultElement.value = parseFloat(num1) - parseFloat(num2);
+			} else if (operation == "multiply") {
+				resultElement.value = parseFloat(num1) * parseFloat(num2);
+			}
+		}
+	</script>
+</head>
+<body>
+    <h1>Calculator</h1>
+	<form>
+  <label>Operation:</label>
+  <select id="operation" name="operation">
+    <option value="power">Power</option>
+    <option value="add">Addition</option>
+    <option value="subtract">Subtraction</option>
+    <option value="multiply">Multiplication</option>
+  </select>
+  <label>Number 1:</label>
+  <input type="text" id="num1">
+  <label>Number 2:</label>
+  <input type="text" id="num2">
+  <label>Result:</label>
+  <input type="text" id="result">
+  <button type="button" onclick="callAPI(document.getElementById('operation').value, document.getElementById('num1').value, document.getElementById('num2').value)">CALCULATE</button>
+</form>>
+</body>
+</html>
